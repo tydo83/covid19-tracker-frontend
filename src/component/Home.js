@@ -1,34 +1,60 @@
 import React, { Component } from 'react'
-import axios from 'axios'
-
-export default class Home extends Component {
+import axios from "axios";
+export default class App extends Component {
     state = {
-        data: ""
-    }
-    // console.log(props)
+        // data: [],
+        data:""
+    };
 
-    componentDidMount() {
+    async componentDidMount() {
         try {
-            let payload = axios.get("https://covid-api.mmediagroup.fr/v1/cases")
+            let payload = await axios.get(
+                "https://covid-api.mmediagroup.fr/v1/cases"
+            );
+            // let countryObj = payload.data;
+            // let newCountryArrayData = [];
+            // for (let key in countryObj) {
+            //     newCountryArrayData.push({
+            //         countryData: countryObj[key],
+            //         countryName: key,
+            //     });
+            // }
+            // this.setState({
+            //     data: newCountryArrayData,
+            // });
             this.setState({
-                data: payload
+                data: payload.data
             })
-        } catch(e) {
-            console.log(e)
+        } catch (e) {
+            console.log(e);
         }
     }
-    
+    showCountryData = () => {
+        return this.state.data.map((item, index) => {
+            return (
+                <React.Fragment key={item.countryName}>
+                    <h1> {item.countryName}</h1>
+                    <div>Confirmed {item.countryData.All.confirmed}</div>
+                </React.Fragment>
+            );
+        });
+    };
     render() {
         return (
             <div style={{ marginTop: 50, textAlign: "center" }}>
-                <input 
-                    style={{ width:300 }}
-                    name="city"    
+                <input
+                    style={{ width: 450 }}
+                    name="countyInput"
                 />
                 <br />
-                <button style={{ margin: 10 }} >
+                <button
+                    style={{ margin: "25px 25px" }}
+                >
                     Search
-                </button>
+        </button>
+                console.log(this.state.data);
+                {console.log(this.state.data.global)}
+                {/* {this.showCountryData()} */}
             </div>
         )
     }
