@@ -40,6 +40,7 @@ export default class App extends Component {
         });
     };
     render() {
+        console.log(this.state.data.Global);
         return (
             <div style={{ marginTop: 50, textAlign: "center" }}>
                 <input
@@ -51,10 +52,8 @@ export default class App extends Component {
                     style={{ margin: "25px 25px" }}
                 >
                     Search
-        </button>
-                console.log(this.state.data);
-                {console.log(this.state.data.global)}
-                {/* {this.showCountryData()} */}
+                </button>
+            {this.state.data.Global}
             </div>
         )
     }
