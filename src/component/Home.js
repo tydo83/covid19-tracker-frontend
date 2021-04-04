@@ -2,58 +2,63 @@ import React, { Component } from 'react'
 import axios from "axios";
 export default class App extends Component {
     state = {
-        // data: [],
-        data:""
+        data: [],
+        country: ""
     };
 
     async componentDidMount() {
         try {
             let payload = await axios.get(
-                "https://covid-api.mmediagroup.fr/v1/cases"
+                "https://covid-api.mmediagroup.fr/v1/cases?country=Global"
             );
-            // let countryObj = payload.data;
-            // let newCountryArrayData = [];
+            let countryObj = payload.data.All;
+            let newCountryArrayData = [];
+            newCountryArrayData.push(countryObj)
+            console.log(newCountryArrayData)
             // for (let key in countryObj) {
             //     newCountryArrayData.push({
             //         countryData: countryObj[key],
             //         countryName: key,
             //     });
-            // }
-            // this.setState({
-            //     data: newCountryArrayData,
-            // });
+            // };
             this.setState({
-                data: payload.data
-            })
+                data: newCountryArrayData,
+            });
         } catch (e) {
             console.log(e);
         }
     }
+
     showCountryData = () => {
         return this.state.data.map((item, index) => {
             return (
                 <React.Fragment key={item.countryName}>
                     <h1> {item.countryName}</h1>
-                    <div>Confirmed {item.countryData.All.confirmed}</div>
+                    <div>Population: {item.confirmed}</div>
+                    <div>Confirmed: {item.confirmed}</div>
+                    <div>Recoverd: {item.recovered}</div>
+                    <div>Deaths: {item.confirmed}</div>
                 </React.Fragment>
             );
         });
     };
+
     render() {
-        console.log(this.state.data.Global);
         return (
             <div style={{ marginTop: 50, textAlign: "center" }}>
                 <input
                     style={{ width: 450 }}
                     name="countyInput"
+                    onChange={this.handleOnChange}
                 />
                 <br />
                 <button
                     style={{ margin: "25px 25px" }}
+                    onClick={this.handleOnClick}
                 >
                     Search
                 </button>
-            {this.state.data.Global}
+                {this.showCountryData()}
             </div>
         )
     }

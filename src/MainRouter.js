@@ -10,7 +10,7 @@ const MainRouter = (props) => {
         <Router>
             <Navbar user={props.user} handleUserLogout={props.handleUserLogout} />
             <Switch>
-            <Route exact path="/home"  render={(routerProps) => <Home {...routerProps} user={props.user }/> }/>
+                <Route exact path="/home"  render={(routerProps) => <Home {...routerProps} user={props.user }/> }/>
                 {/* <Route exact path="/home" 
                     component={Home}
                     user={props.user} /> */}
