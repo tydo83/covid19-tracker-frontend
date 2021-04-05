@@ -17,7 +17,7 @@ export default class App extends Component {
             let countryObj = payload.data.All;
             let newCountryArrayData = [];
             newCountryArrayData.push(countryObj)
-            console.log(payload.all)
+            console.log(countryObj)
             // for (let key in countryObj) {
             //     newCountryArrayData.push({
             //         countryData: countryObj[key],
@@ -25,6 +25,7 @@ export default class App extends Component {
             //     });
             // };
             this.setState({
+                country: "Global",
                 data: newCountryArrayData,
             });
         } catch (e) {
@@ -37,10 +38,10 @@ export default class App extends Component {
             return (
                 <React.Fragment key={item.countryName}>
                     <h1> {this.state.country}</h1>
-                    <div>Population: {item.confirmed}</div>
+                    <div>Population: {item.population}</div>
                     <div>Confirmed: {item.confirmed}</div>
-                    <div>Recoverd: {item.recovered}</div>
                     <div>Deaths: {item.confirmed}</div>
+                    <div>Recoverd: {item.recovered}</div>
                 </React.Fragment>
             );
         });

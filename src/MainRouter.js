@@ -4,6 +4,7 @@ import Navbar from './component/Navbar'
 import SignUp from './component/SignUp'
 import Login from './component/Login'
 import Home from './component/Home'
+import NotFound from './component/NotFound'
 
 const MainRouter = (props) => {
     return (
@@ -16,6 +17,7 @@ const MainRouter = (props) => {
                     user={props.user} /> */}
                 <Route exact path="/sign-up" component={SignUp} />
                 <Route exact path="/login" component={Login} />
+                <Route component={NotFound} />
             </Switch>
         </Router>
     )
