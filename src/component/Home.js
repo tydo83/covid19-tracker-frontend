@@ -17,13 +17,6 @@ export default class App extends Component {
             let countryObj = payload.data.All;
             let newCountryArrayData = [];
             newCountryArrayData.push(countryObj)
-            console.log(countryObj)
-            // for (let key in countryObj) {
-            //     newCountryArrayData.push({
-            //         countryData: countryObj[key],
-            //         countryName: key,
-            //     });
-            // };
             this.setState({
                 country: "Global",
                 data: newCountryArrayData,
@@ -35,15 +28,24 @@ export default class App extends Component {
 
     showCountryData = () => {
         return this.state.data.map((item, index) => {
-            return (
-                <React.Fragment key={item.countryName}>
-                    <h1> {this.state.country}</h1>
-                    <div>Population: {item.population}</div>
-                    <div>Confirmed: {item.confirmed}</div>
-                    <div>Deaths: {item.confirmed}</div>
-                    <div>Recoverd: {item.recovered}</div>
-                </React.Fragment>
-            );
+            if (item !== undefined) {
+                return (
+                    <React.Fragment key={item.countryName}>
+                        <h1> {this.state.country} </h1>
+                        <div>Population: {item.population}</div>
+                        <div>Confirmed: {item.confirmed}</div>
+                        <div>Deaths: {item.confirmed}</div>
+                        <div>Recovered: {item.recovered}</div>
+                    </React.Fragment>
+                );
+            } else {
+                return (
+                    <>
+                        <p>Sorry, the country you are looking for is not in our database</p>
+                    </>
+                )
+            }
+
         });
     };
 
@@ -54,7 +56,7 @@ export default class App extends Component {
     }
 
     handleOnClick = async (event) => {
-        if(this.state.country.length === 0) {
+        if (this.state.country.length === 0) {
             this.setState({
                 isError: true,
                 errorMessage: "Please enter the country",
@@ -71,8 +73,8 @@ export default class App extends Component {
                 data: newCountryArrayData
             })
             console.log(this.state.data)
-        } catch(e) {
-        console.log(e)
+        } catch (e) {
+            console.log(e)
         }
     }
 
