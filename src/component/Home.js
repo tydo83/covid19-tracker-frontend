@@ -30,7 +30,7 @@ export default class App extends Component {
         return this.state.data.map((item, index) => {
             if (item !== undefined) {
                 return (
-                    <React.Fragment key={item.countryName}>
+                    <React.Fragment key={index}>
                         <h1> {this.state.country} </h1>
                         <div>Population: {item.population}</div>
                         <div>Confirmed: {item.confirmed}</div>

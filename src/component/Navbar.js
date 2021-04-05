@@ -15,6 +15,7 @@ function Navbar(props) {
                     <NavLink
                         className="btn btn-outline-primary margin-right"
                         activeStyle={{ color: "yellow" }}
+                        to='/'
                     >
                         {props.user.email}
                     </NavLink>

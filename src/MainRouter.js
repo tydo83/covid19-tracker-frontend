@@ -5,18 +5,22 @@ import SignUp from './component/SignUp'
 import Login from './component/Login'
 import Home from './component/Home'
 import NotFound from './component/NotFound'
+import PrivateRoute from './component/PrivateRoute'
 
 const MainRouter = (props) => {
+    console.log(props)
     return (
         <Router>
             <Navbar user={props.user} handleUserLogout={props.handleUserLogout} />
             <Switch>
-                <Route exact path="/home"  render={(routerProps) => <Home {...routerProps} user={props.user }/> }/>
+                <PrivateRoute exact path="/home" component={Home}/>
                 {/* <Route exact path="/home" 
                     component={Home}
-                    user={props.user} /> */}
-                <Route exact path="/sign-up" component={SignUp} />
-                <Route exact path="/login" component={Login} />
+                /> */}
+                <Route exact path="/sign-up" render={(routerProps) => <SignUp {...routerProps}
+                    handleUserLogin={props.handleUserLogin} />} />
+                <Route exact path="/login" render={(routerProps) => <Login {...routerProps}
+                    handleUserLogin={props.handleUserLogin} />} />
                 <Route component={NotFound} />
             </Switch>
         </Router>

@@ -12,8 +12,9 @@ export class Login extends Component {
     }
 
     componentDidMount() {
+        console.log(this.props)
         if (checkIsUserLoggedIn()) {
-            this.props.history.push("/movie-home")
+            this.props.history.push('/home')
         } else {
             this.props.history.push('/login')
         }
@@ -37,8 +38,9 @@ export class Login extends Component {
 
             let decodedJWToken = jwtDecode(result.data.jwtToken)
             this.props.handleUserLogin(decodedJWToken)
-            this.props.history.push('/movie-home')
+            this.props.history.push('/home')
         } catch (e) {
+            console.log(e)
             toast.error(e.response.data, {
                 position: "top-right",
                 autoClose: 5000,

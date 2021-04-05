@@ -85,6 +85,7 @@ export class SignUp extends Component {
                 email,
                 password,
             })
+            console.log(result)
             this.setState({
                 firstName: "",
                 lastName: "",
