@@ -5,6 +5,7 @@ import SignUp from './component/SignUp'
 import Login from './component/Login'
 import Home from './component/Home'
 import NotFound from './component/NotFound'
+import Search from './component/Search'
 import PrivateRoute from './component/PrivateRoute'
 
 const MainRouter = (props) => {
@@ -13,10 +14,11 @@ const MainRouter = (props) => {
         <Router>
             <Navbar user={props.user} handleUserLogout={props.handleUserLogout} />
             <Switch>
-                <PrivateRoute exact path="/home" component={Home}/>
+                <PrivateRoute exact path="/search" component={Search}/>
                 {/* <Route exact path="/home" 
                     component={Home}
                 /> */}
+                <Route exact path="/" render = {Home}/>
                 <Route exact path="/sign-up" render={(routerProps) => <SignUp {...routerProps}
                     handleUserLogin={props.handleUserLogin} />} />
                 <Route exact path="/login" render={(routerProps) => <Login {...routerProps}
