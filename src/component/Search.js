@@ -77,10 +77,9 @@ export default class App extends Component {
                         <br />
                         Confirmed:{this.state.countryData.data.All.confirmed}
                         <br />
-                        Recovered: {this.state.countryData.data.All.recovered}
-                        <br />
                         Death:{this.state.countryData.data.All.deaths}
                         <br />
+                        Recovered: {this.state.countryData.data.All.recovered}    
                     </div>
                     ) : ""}
                 </div>

@@ -18,7 +18,7 @@ const MainRouter = (props) => {
                 {/* <Route exact path="/home" 
                     component={Home}
                 /> */}
-                <Route exact path="/" render = {Home}/>
+                <Route exact path="/" render = {(routerProps) => <Home {...routerProps} user={props.user}/>}/>
                 <Route exact path="/sign-up" render={(routerProps) => <SignUp {...routerProps}
                     handleUserLogin={props.handleUserLogin} />} />
                 <Route exact path="/login" render={(routerProps) => <Login {...routerProps}
