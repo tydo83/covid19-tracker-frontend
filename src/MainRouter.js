@@ -7,6 +7,7 @@ import Home from './component/Home'
 import NotFound from './component/NotFound'
 import Search from './component/Search'
 import PrivateRoute from './component/PrivateRoute'
+import Footer from './component/Footer'
 
 const MainRouter = (props) => {
     console.log(props)
@@ -25,6 +26,7 @@ const MainRouter = (props) => {
                     handleUserLogin={props.handleUserLogin} />} />
                 <Route component={NotFound} />
             </Switch>
+            <Footer />
         </Router>
     )
 }
