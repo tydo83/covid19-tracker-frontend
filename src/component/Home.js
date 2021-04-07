@@ -8,7 +8,6 @@ function Home(props) {
             <br />
             <br />
             <div>
-                This is our main page. 
                 If you want to search the covid-19 data, please, log in.
             </div>
         </div>

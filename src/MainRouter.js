@@ -7,7 +7,9 @@ import Home from './component/Home'
 import NotFound from './component/NotFound'
 import Search from './component/Search'
 import PrivateRoute from './component/PrivateRoute'
+import Features from './component/Features'
 import Footer from './component/Footer'
+import Profile from './component/Profile'
 
 const MainRouter = (props) => {
     console.log(props)
@@ -19,6 +21,7 @@ const MainRouter = (props) => {
                 {/* <Route exact path="/home" 
                     component={Home}
                 /> */}
+                <PrivateRoute exact path="/profile" component={Profile}/>
                 <Route exact path="/" render = {(routerProps) => <Home {...routerProps} user={props.user}/>}/>
                 <Route exact path="/sign-up" render={(routerProps) => <SignUp {...routerProps}
                     handleUserLogin={props.handleUserLogin} />} />
@@ -26,6 +29,7 @@ const MainRouter = (props) => {
                     handleUserLogin={props.handleUserLogin} />} />
                 <Route component={NotFound} />
             </Switch>
+            <Features />
             <Footer />
         </Router>
     )
