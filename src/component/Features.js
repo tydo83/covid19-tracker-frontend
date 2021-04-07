@@ -30,7 +30,7 @@ export default class Features extends Component {
                             </ul></p>
                     </div>
                     <div className="col-md-5">
-                        <img className="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" src={sickImage} />
+                        <img className="mx-auto d-block img-fluid" src={sickImage} />
                     </div>
                 </div>
                 <hr className="featurette-divider" />
@@ -45,7 +45,7 @@ export default class Features extends Component {
                         </p>
                     </div>
                     <div className="col-md-5">
-                        <img className="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false" src={mask}/>
+                        <img className="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" src={mask}/>
 
                     </div>
                 </div>

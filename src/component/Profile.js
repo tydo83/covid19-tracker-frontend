@@ -144,7 +144,6 @@ export class Profile extends Component {
                             value={oldPassword}
                             onChange={this.handleOldPasswordChange}
                         />
-                        <br />
                         <label htmlFor="inputPassword" className="visually-hidden">
                             New Password
                         </label>

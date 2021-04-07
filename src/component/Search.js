@@ -55,7 +55,7 @@ export default class App extends Component {
             <div style={{ marginTop: 50, textAlign: "center" }}>
                 <img src={world} style={{ width: 500 }} />
                 <br />
-                <div>
+                <div className="lead" style={{fontSize: 16}}>
                     <label htmlFor="items" style={{ marginRight: 10 }}>Choose a country: </label>
                     <select id="items" onChange={this.handleOnChange} >
                         <option value="" selected disabled hidden>Choose here</option>
@@ -65,13 +65,14 @@ export default class App extends Component {
                             </option>)}
                     </select>
                     <button
+                        className="btn btn-warning"
                         style={{ margin: "25px 25px" }}
                         onClick={this.handleOnClick}
                     >
                         Search
                 </button>
                     {this.state.countryData !== null ? (
-                    <div>
+                    <div className="lead" style={{fontSize: 16}}>
                         {console.log(this.state.countryData)}
                         Population: {this.state.countryData.data.All.population}
                         <br />
